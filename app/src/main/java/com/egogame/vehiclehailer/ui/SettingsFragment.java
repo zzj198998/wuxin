@@ -88,10 +88,10 @@ public class SettingsFragment extends Fragment {
         // 声道切换（车内/车外）
         channelSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                voicePlayer.setChannel(VoicePlayer.Channel.INSIDE);
+                voicePlayer.setChannel(true);
                 channelSwitch.setText(R.string.setting_channel_inside);
             } else {
-                voicePlayer.setChannel(VoicePlayer.Channel.OUTSIDE);
+                voicePlayer.setChannel(false);
                 channelSwitch.setText(R.string.setting_channel_outside);
             }
         });
