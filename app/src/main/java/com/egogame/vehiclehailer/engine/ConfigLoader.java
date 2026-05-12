@@ -61,6 +61,14 @@ public class ConfigLoader {
     public List<VoiceItem> getVoiceItems() { return voiceItems; }
     public List<VehicleProperty> getVehicleProperties() { return vehicleProperties; }
     public List<Catalog> getCatalogs() { return catalogs; }
+    public VehicleProperty getVehicleProperty(String propertyName) {
+        for (VehicleProperty vp : allProperties) {
+            if (vp.getTitle().equals(propertyName) || vp.getName().equals(propertyName)) {
+                return vp;
+            }
+        }
+        return null;
+    }
     public Map<String, String> getSettings() { return settings; }
 
     public int getCurrentCarModelId() { return currentCarModelId; }
