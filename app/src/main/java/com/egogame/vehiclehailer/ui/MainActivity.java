@@ -2,7 +2,7 @@ package com.egogame.vehiclehailer.ui;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private MonitorFragment monitorFragment;
     private SettingsFragment settingsFragment;
 
-    // 左侧导航按钮
-    private ImageButton navVoice, navMonitor, navSettings;
+    // 左侧导航按钮（布局中是LinearLayout，注意类型匹配）
+    private LinearLayout navVoice, navMonitor, navSettings;
     private TextView navVoiceLabel, navMonitorLabel, navSettingsLabel;
 
     // Logcat监听服务
