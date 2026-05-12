@@ -1,0 +1,8 @@
+"id","model_name","reg_file_name"
+"#ID","#车型名称","#属性匹配表文件名"
+"1","Car_Deepal","property_reg_deepal.csv"
+"2","Car_OuShang","property_reg_z6.csv"
+"3","Car_Jili","property_reg_xingyuel21.csv"
+"4","Car_Mazda","property_reg_mazda.csv"
+"5","Car_QiYuan","property_reg_qiyuan.csv"
+"6","Car_YiPai007","property_reg_yipai007.csv"
