@@ -230,16 +230,16 @@ public class AutoTriggerEngine {
      * 触发语音播放
      */
     private void triggerVoice(VoiceItem item) {
-        Log.d(TAG, "触发语音: id=" + item.getId() + " name=" + item.getName());
+        Log.d(TAG, "触发语音: id=" + item.getId() + " name=" + item.getTitle());
 
         // 系统级放车内（STREAM_MUSIC），阻塞级放车外（STREAM_VOICE_CALL）
         if (item.getTab() == VoiceTab.SYSTEM) {
-            voicePlayer.setChannel(VoicePlayer.Channel.INSIDE);
+            voicePlayer.setChannel(true);
         } else {
-            voicePlayer.setChannel(VoicePlayer.Channel.OUTSIDE);
+            voicePlayer.setChannel(false);
         }
 
-        voicePlayer.play(item.getFilePath());
+        voicePlayer.play(item);
         playedVoiceIds.add(item.getId());
 
         // 阻塞级语音播放完后自动重置"已播放"状态
