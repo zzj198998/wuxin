@@ -43,7 +43,11 @@ public class VoiceItem {
 
     public int getId() { return id; }
     public String getTitle() { return title; }
+    // 别名方法 - 兼容VoiceAdapter的调用
+    public String getName() { return title; }
     public String getPath() { return path; }
+    // 别名方法 - 兼容VoiceAdapter的调用
+    public String getFilePath() { return path; }
     public VoiceTab getTab() { return tab; }
     public boolean isPlaying() { return isPlaying; }
     public void setPlaying(boolean playing) { isPlaying = playing; }
