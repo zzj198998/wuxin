@@ -1,37 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 车机横屏布局 - 欧尚行车喊话风格 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background_dark">
+    android:orientation="horizontal"
+    android:background="@color/background_dark"
+    android:keepScreenOn="true">
 
-    <!-- 顶部标题栏 -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/primary_dark"
-        android:theme="@style/ThemeOverlay.VehicleHailer.Dark.ActionBar"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/white" />
-
-    <!-- Fragment容器 -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <!-- 底部导航 -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <!-- ========== 左侧导航栏（车机横屏风格） ========== -->
+    <LinearLayout
+        android:id="@+id/left_nav_panel"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="@color/background_card"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:labelVisibilityMode="labeled" />
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:elevation="4dp">
+
+        <!-- 应用Logo/标题 -->
+        <TextView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="喊"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/circle_primary"
+            android:layout_marginBottom="32dp" />
+
+        <!-- 语音喊话按钮（大按钮，车机风格） -->
+        <LinearLayout
+            android:id="@+id/nav_voice"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="📢"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:background="@drawable/nav_button_bg_active" />
+
+            <TextView
+                android:id="@+id/nav_voice_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="喊话"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- 车辆监控按钮 -->
+        <LinearLayout
+            android:id="@+id/nav_monitor"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="🚗"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/nav_button_bg" />
+
+            <TextView
+                android:id="@+id/nav_monitor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="监控"
+                android:textColor="@color/gray_400"
+                android:textSize="10sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- 设置按钮 -->
+        <LinearLayout
+            android:id="@+id/nav_settings"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="⚙"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/nav_button_bg" />
+
+            <TextView
+                android:id="@+id/nav_settings_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="设置"
+                android:textColor="@color/gray_400"
+                android:textSize="10sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ========== 右侧内容区域 ========== -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- 顶部信息栏 -->
+        <LinearLayout
+            android:id="@+id/top_info_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@color/primary_dark"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- 车联状态指示 -->
+            <TextView
+                android:id="@+id/status_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 已连接"
+                android:textColor="@color/green_500"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Fragment 容器 -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </LinearLayout>
