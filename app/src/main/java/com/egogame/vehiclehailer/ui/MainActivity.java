@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startLogcatMonitoring() {
         VehicleHailerApp app = VehicleHailerApp.getInstance();
-        logcatMonitor = new LogcatMonitor(app.getVehicleStateManager(), matchedLine -> {
+                LogcatMonitor.OnLogMatchedListener listener = result -> {
             runOnUiThread(() -> {
                 if (!isMonitoring) {
                     isMonitoring = true;
@@ -90,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
                     monitorFragment.onVehicleStateChanged();
                 }
             });
-        });
+        };
+        logcatMonitor = new LogcatMonitor(app.getVehicleStateManager());
+        logcatMonitor.setOnLogMatchedListener(listener);
         logcatMonitor.start();
 
         // 同时启动前台Service保持监听
