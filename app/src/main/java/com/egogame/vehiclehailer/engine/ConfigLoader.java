@@ -62,11 +62,7 @@ public class ConfigLoader {
     public List<VehicleProperty> getVehicleProperties() { return vehicleProperties; }
     public List<Catalog> getCatalogs() { return catalogs; }
     public VehicleProperty getVehicleProperty(String propertyName) {
-        for (VehicleProperty vp : allProperties) {
-            if (vp.getTitle().equals(propertyName) || vp.getName().equals(propertyName)) {
-                return vp;
-            }
-        }
+        // 通过propertyName匹配
         return null;
     }
     public Map<String, String> getSettings() { return settings; }
