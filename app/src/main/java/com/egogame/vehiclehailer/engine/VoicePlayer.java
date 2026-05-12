@@ -130,10 +130,7 @@ public class VoicePlayer {
      */
     public void stop()
     {
-        // 无参重载，停止当前播放
-        if (currentItem != null) {
-            stop(currentItem);
-        }
+        stopAll();
     }
 
     public void stop(VoiceItem item) {
