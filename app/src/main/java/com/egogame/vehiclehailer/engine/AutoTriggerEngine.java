@@ -52,7 +52,7 @@ public class AutoTriggerEngine {
         this.voiceItems = VehicleHailerApp.getInstance().getConfigLoader().getVoiceItems();
 
         // 注册属性变化监听
-        stateManager.setOnPropertyChangeListener((propertyName, newValue) -> {
+        stateManager.setOnPropertyChangeListener((propertyName, oldValue, newValue) -> {
             if (!enabled) return;
 
             String oldValue = lastPropertyValues.get(propertyName);
