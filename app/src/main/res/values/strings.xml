@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">无心车机喊话</string>
+
+    <!-- 导航标签 -->
+    <string name="tab_voice">语音库</string>
+    <string name="tab_monitor">车辆状态</string>
+    <string name="tab_settings">设置</string>
+
+    <!-- 语音状态 -->
+    <string name="voice_status_playing">播放中</string>
+    <string name="voice_status_idle">待播放</string>
+    <string name="voice_status_blocked">已阻塞</string>
+
+    <!-- 设置页 -->
+    <string name="setting_car_model">车型选择</string>
+    <string name="setting_channel">声道设置</string>
+    <string name="setting_channel_inside">车内扬声器</string>
+    <string name="setting_channel_outside">车外扬声器</string>
+    <string name="setting_tts">TTS语音设置</string>
+    <string name="setting_tts_enabled">启用在线TTS</string>
+    <string name="setting_tts_url">TTS接口地址</string>
+    <string name="setting_tts_format">输出格式</string>
+    <string name="setting_auto_play">自动触发播放</string>
+    <string name="setting_log_level">日志级别</string>
+
+    <!-- 车辆状态页 -->
+    <string name="vehicle_state_title">车辆属性状态</string>
+    <string name="vehicle_no_data">暂未接收到车辆信号</string>
+    <string name="vehicle_connected">信号已连接</string>
+    <string name="vehicle_disconnected">信号已断开</string>
+
+    <!-- 通用 -->
+    <string name="btn_play">播放</string>
+    <string name="btn_stop">停止</string>
+    <string name="btn_preview">试听</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_cancel">取消</string>
+</resources>
