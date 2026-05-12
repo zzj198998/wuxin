@@ -52,11 +52,11 @@ public class AutoTriggerEngine {
         this.voiceItems = VehicleHailerApp.getInstance().getConfigLoader().getVoiceItems();
 
         // 注册属性变化监听
-        stateManager.setOnPropertyChangeListener((propertyName, oldValue, newValue) -> {
+        stateManager.setOnPropertyChangeListener((propertyName, oldVal, newValue) -> {
             if (!enabled) return;
 
-            String oldValue = lastPropertyValues.get(propertyName);
-            if (oldValue == null || !oldValue.equals(newValue)) {
+            String oldVal = lastPropertyValues.get(propertyName);
+            if (oldVal == null || !oldVal.equals(newValue)) {
                 lastPropertyValues.put(propertyName, newValue);
                 // 防抖：属性变化后延迟300ms再判断触发条件
                 debounceTrigger();
