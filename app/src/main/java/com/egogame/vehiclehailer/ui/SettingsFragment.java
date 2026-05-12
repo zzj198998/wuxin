@@ -115,3 +115,5 @@ public class SettingsFragment extends Fragment {
             android.util.Log.e("SettingsFragment", "设置页面初始化失败", e);
         }
     }
+
+}
