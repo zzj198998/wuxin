@@ -22,7 +22,13 @@ public class LogcatMonitor {
 
     private OnLogMatchedListener matchedListener;
 
+        private java.util.function.Consumer<String> logCallback;
+
     public LogcatMonitor(VehicleStateManager stateManager) {
+        this.stateManager = stateManager;
+    }
+
+    public LogcatMonitor(VehicleStateManager stateManager, java.util.function.Consumer<String> callback) {
         this.stateManager = stateManager;
     }
 
