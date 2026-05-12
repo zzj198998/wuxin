@@ -44,8 +44,12 @@ public class VehicleProperty {
 
     public String getPropertyName() { return propertyName; }
     public String getDisplayName() { return displayName; }
+    // 兼容性别名方法
+    public String getName() { return getPropertyName(); }
+    public String getTitle() { return getDisplayName(); }
     public String getCategory() { return category; }
     public String getCatalog() { return catalog; }
+    public int getCatalogId() { return -1; }
     public ControlType getControlType() { return controlType; }
     public String[] getOptions() { return options; }
     public String[] getOptionValues() { return optionValues; }
