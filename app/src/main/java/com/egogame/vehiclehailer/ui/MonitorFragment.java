@@ -65,7 +65,7 @@ public class MonitorFragment extends Fragment {
         allProperties = new ArrayList<>();
         for (PropertyReg reg : currentRegs) {
             VehicleProperty vp = VehicleHailerApp.getInstance().getConfigLoader()
-                    .getVehicleProperty(reg.getPropertyName());
+                    .findPropertyByName(reg.getPropertyName());
             if (vp != null) {
                 allProperties.add(vp);
             }
@@ -122,7 +122,7 @@ public class MonitorFragment extends Fragment {
         } else {
             Catalog selectedCatalog = catalogs.get(catalogIndex - 1);
             for (VehicleProperty vp : allProperties) {
-                if (vp.getCatalog().equals(selectedCatalog.getCatalog())) {
+                if (vp.getCatalogId() == selectedCatalog.getId()) {
                     filteredProperties.add(vp);
                 }
             }
