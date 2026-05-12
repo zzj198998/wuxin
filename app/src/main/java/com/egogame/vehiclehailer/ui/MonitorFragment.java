@@ -122,7 +122,7 @@ public class MonitorFragment extends Fragment {
         } else {
             Catalog selectedCatalog = catalogs.get(catalogIndex - 1);
             for (VehicleProperty vp : allProperties) {
-                if (vp.getCatalogId() == selectedCatalog.getId()) {
+                if (vp.getCatalog().equals(selectedCatalog.getCatalog())) {
                     filteredProperties.add(vp);
                 }
             }
