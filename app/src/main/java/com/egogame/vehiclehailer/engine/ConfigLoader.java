@@ -41,36 +41,37 @@ public class ConfigLoader {
     }
 
     public void loadAll() {
-        carModels = loadCarModels();
-        voiceItems = loadVoiceItems();
-        vehicleProperties = loadVehicleProperties();
-        catalogs = loadCatalogs();
+        try { carModels = loadCarModels(); } catch (Exception e) { Log.w(TAG, "车型加载失败", e); carModels = new ArrayList<>(); }
+        try { voiceItems = loadVoiceItems(); } catch (Exception e) { Log.w(TAG, "语音加载失败", e); voiceItems = new ArrayList<>(); }
+        try { vehicleProperties = loadVehicleProperties(); } catch (Exception e) { Log.w(TAG, "属性加载失败", e); vehicleProperties = new ArrayList<>(); }
+        try { catalogs = loadCatalogs(); } catch (Exception e) { Log.w(TAG, "分类加载失败", e); catalogs = new ArrayList<>(); }
         propertyRegMap = new HashMap<>();
-        for (CarModel model : carModels) {
-            List<PropertyReg> regs = loadPropertyReg(model.getRegFileName());
-            propertyRegMap.put(model.getModelName(), regs);
+        if (carModels != null) {
+            for (CarModel model : carModels) {
+                try {
+                    List<PropertyReg> regs = loadPropertyReg(model.getRegFileName());
+                    propertyRegMap.put(model.getModelName(), regs);
+                } catch (Exception e2) { Log.w(TAG, "属性注册表加载失败: " + model.getModelName(), e2); }
+            }
         }
-        settings = loadSettings();
+        try { settings = loadSettings(); } catch (Exception e) { Log.w(TAG, "设置加载失败", e); settings = new HashMap<>(); }
         Log.d(TAG, "所有配置加载完成: " + carModels.size() + " 车型, "
                 + voiceItems.size() + " 语音, " + vehicleProperties.size() + " 属性");
     }
 
     // ============ 公共访问方法 ============
 
-    public List<CarModel> getCarModels() { return carModels; }
-    public List<VoiceItem> getVoiceItems() { return voiceItems; }
-    public List<VehicleProperty> getVehicleProperties() { return vehicleProperties; }
-    public List<Catalog> getCatalogs() { return catalogs; }
-    public VehicleProperty getVehicleProperty(String propertyName) {
-        // 通过propertyName匹配
-        return null;
-    }
-    public Map<String, String> getSettings() { return settings; }
+    public List<CarModel> getCarModels() { return carModels != null ? carModels : new ArrayList<>(); }
+    public List<VoiceItem> getVoiceItems() { return voiceItems != null ? voiceItems : new ArrayList<>(); }
+    public List<VehicleProperty> getVehicleProperties() { return vehicleProperties != null ? vehicleProperties : new ArrayList<>(); }
+    public List<Catalog> getCatalogs() { return catalogs != null ? catalogs : new ArrayList<>(); }
+    public Map<String, String> getSettings() { return settings != null ? settings : new HashMap<>(); }
 
     public int getCurrentCarModelId() { return currentCarModelId; }
     public void setCurrentCarModelId(int id) { this.currentCarModelId = id; }
 
     public CarModel getCurrentCarModel() {
+        if (carModels == null) return null;
         for (CarModel m : carModels) {
             if (m.getId() == currentCarModelId) return m;
         }
