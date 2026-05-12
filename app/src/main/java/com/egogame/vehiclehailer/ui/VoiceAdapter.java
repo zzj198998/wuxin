@@ -41,7 +41,7 @@ public class VoiceAdapter extends RecyclerView.Adapter<VoiceAdapter.VoiceViewHol
         holder.pathText.setText(item.getFilePath());
 
         holder.playButton.setOnClickListener(v -> {
-            voicePlayer.play(item.getFilePath());
+            voicePlayer.play(item);
             // 切换播放/暂停按钮状态
             holder.playButton.setVisibility(View.GONE);
             holder.stopButton.setVisibility(View.VISIBLE);
@@ -54,7 +54,7 @@ public class VoiceAdapter extends RecyclerView.Adapter<VoiceAdapter.VoiceViewHol
         });
 
         // 预加载声音
-        voicePlayer.preloadVoice(item.getFilePath());
+        voicePlayer.preloadVoice(item);
     }
 
     @Override
