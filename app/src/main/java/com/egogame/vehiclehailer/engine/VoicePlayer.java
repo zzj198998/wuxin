@@ -65,6 +65,10 @@ public class VoicePlayer {
      * @param item 语音条目
      * @param isExterior 是否车外播放（true=车外喇叭，false=车内扬声器）
      */
+        public void play(VoiceItem item) {
+        play(item, CHANNEL_INTERIOR);
+    }
+
     public void play(VoiceItem item, boolean isExterior) {
         int streamType = isExterior ? CHANNEL_EXTERIOR : CHANNEL_INTERIOR;
         play(item, streamType);
@@ -128,6 +132,14 @@ public class VoicePlayer {
     /**
      * 停止指定语音
      */
+    /**
+     * 设置声道
+     * @param isExterior true=车外，false=车内
+     */
+    public void setChannel(boolean isExterior) {
+        currentStreamType = isExterior ? CHANNEL_EXTERIOR : CHANNEL_INTERIOR;
+    }
+
     public void stop()
     {
         stopAll();
