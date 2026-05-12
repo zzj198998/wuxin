@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_dark">
+
+    <!-- 分类Tab切换 -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_card"
+        app:tabTextColor="@color/gray_400"
+        app:tabSelectedTextColor="@color/primary_light"
+        app:tabIndicatorColor="@color/primary_light">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="系统" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阻塞" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- 搜索框 -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="24dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/background_card">
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@"
+            android:hint="搜索语音名称..."
+            android:textColorHint="@color/gray_600"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="12dp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 语音列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/voice_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+</LinearLayout>
