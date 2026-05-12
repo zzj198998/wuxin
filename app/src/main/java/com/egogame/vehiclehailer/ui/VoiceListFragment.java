@@ -96,7 +96,7 @@ public class VoiceListFragment extends Fragment {
             if (tabPosition == 1 && item.getTab() != VoiceTab.SYSTEM) continue;
             if (tabPosition == 2 && item.getTab() != VoiceTab.BLOCK) continue;
             // 搜索过滤
-            if (!query.isEmpty() && !item.getName().toLowerCase().contains(query.toLowerCase())) continue;
+            if (!query.isEmpty() && !item.getTitle().toLowerCase().contains(query.toLowerCase())) continue;
             filteredVoiceItems.add(item);
         }
         voiceAdapter.notifyDataSetChanged();
